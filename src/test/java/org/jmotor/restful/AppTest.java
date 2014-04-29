@@ -9,6 +9,6 @@ import org.junit.Test;
 public class AppTest {
     @Test
     public void test() {
-        Success.Created.build();
+        Success.Created.build("https://server.com/v1/", "domain", "0001");
     }
 }
