@@ -1,0 +1,11 @@
+language: java
+
+jdk:
+  - openjdk7
+  - oraclejdk7
+
+install: mvn install
+
+notifications:
+  email:
+    - yanbo.ai@gmail.com
