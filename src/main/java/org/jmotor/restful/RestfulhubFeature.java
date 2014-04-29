@@ -2,6 +2,7 @@ package org.jmotor.restful;
 
 import org.jmotor.restful.provider.mapper.ConstraintViolationExceptionMapper;
 import org.jmotor.restful.provider.mapper.EntityNotFoundExceptionMapper;
+import org.jmotor.restful.provider.mapper.IllegalArgumentExceptionMapper;
 import org.jmotor.restful.provider.mapper.NotAllowedExceptionMapper;
 import org.jmotor.restful.provider.mapper.NotFoundExceptionMapper;
 import org.jmotor.restful.provider.mapper.ThrowableMapper;
@@ -23,6 +24,7 @@ public class RestfulhubFeature implements Feature {
         featureContext.register(NotFoundExceptionMapper.class);
         featureContext.register(NotAllowedExceptionMapper.class);
         featureContext.register(EntityNotFoundExceptionMapper.class);
+        featureContext.register(IllegalArgumentExceptionMapper.class);
         featureContext.register(ConstraintViolationExceptionMapper.class);
         return true;
     }
