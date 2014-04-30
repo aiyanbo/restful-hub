@@ -20,12 +20,12 @@ public class AuthenticationException extends RuntimeException {
     }
 
     public static enum Code {
-        MISSING_HEADER_AUTHORIZATION(401, "unauthorized", "Missing http header[Authorization] or is empty"),
-        AUDIENCE_NOT_MATCHED(401, "audience_not_matched", "Audience not matched"),
-        SCOPE_NOT_ALLOWED(403, "scope_not_allowed", "Scope not allowed"),
         TOKEN_EXPIRED(403, "token_expired", "Token expired"),
+        UNKNOWN_SCOPE(401, "unknown_scope", "Unknown scope"),
         UNKNOWN_CLIENT(401, "unknown_client", "Unknown client"),
-        UNKNOWN_SCOPE(401, "unknown_scope", "Unknown scope");
+        SCOPE_NOT_ALLOWED(403, "scope_not_allowed", "Scope not allowed"),
+        AUDIENCE_NOT_MATCHED(401, "audience_not_matched", "Audience not matched"),
+        MISSING_HEADER_AUTHORIZATION(401, "unauthorized", "Missing http header[Authorization] or is empty");
 
         private int status;
         private String code;
