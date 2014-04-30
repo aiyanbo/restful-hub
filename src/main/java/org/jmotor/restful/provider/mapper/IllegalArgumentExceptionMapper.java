@@ -17,9 +17,10 @@ import javax.ws.rs.ext.Provider;
 public class IllegalArgumentExceptionMapper implements ExceptionMapper<IllegalArgumentException> {
     @Override
     public Response toResponse(IllegalArgumentException exception) {
+        String message = exception.getLocalizedMessage();
         return Builder.newBuilder()
-                .message(exception.getLocalizedMessage())
-                .error("illegal_parameter", exception.getLocalizedMessage())
+                .message(message)
+                .error("illegal_parameter", message)
                 .build(Response.Status.BAD_REQUEST);
     }
 }

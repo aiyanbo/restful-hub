@@ -18,9 +18,10 @@ import javax.ws.rs.ext.Provider;
 public class NotAllowedExceptionMapper implements ExceptionMapper<NotAllowedException> {
     @Override
     public Response toResponse(NotAllowedException e) {
+        String message = e.getLocalizedMessage();
         return Builder.newBuilder()
-                .message(e.getLocalizedMessage())
-                .error("method_not_allowed", e.getLocalizedMessage())
+                .message(message)
+                .error("method_not_allowed", message)
                 .build(Response.Status.METHOD_NOT_ALLOWED);
     }
 }
