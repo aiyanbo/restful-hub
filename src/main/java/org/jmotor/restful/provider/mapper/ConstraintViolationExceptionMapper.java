@@ -26,13 +26,10 @@ public class ConstraintViolationExceptionMapper implements ExceptionMapper<Const
         Set<ConstraintViolation<?>> constraintViolations = e.getConstraintViolations();
         for (ConstraintViolation constraintViolation : constraintViolations) {
             String code = "illegal_parameter";
-            String message = constraintViolation.getMessage();
             if (NotNull.class.equals(constraintViolation.getConstraintDescriptor().getAnnotation().annotationType())) {
                 code = "missing_parameter";
-            } else {
-                message += (". Invalid value: " + constraintViolation.getInvalidValue());
             }
-            builder.error(code, message);
+            builder.error(code, constraintViolation.getMessage());
         }
         return builder.build(Response.Status.BAD_REQUEST);
     }
