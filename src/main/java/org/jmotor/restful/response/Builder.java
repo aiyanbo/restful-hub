@@ -58,4 +58,9 @@ public class Builder {
         Error error = build();
         return Response.status(status).entity(error).type(MediaType.APPLICATION_JSON_TYPE).build();
     }
+
+    public Response build(int status) {
+        Error error = build();
+        return Response.status(status).entity(error).type(MediaType.APPLICATION_JSON_TYPE).build();
+    }
 }
