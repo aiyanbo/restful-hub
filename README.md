@@ -2,7 +2,7 @@ restful-hub
 ===========
 [![Build Status](https://travis-ci.org/aiyanbo/restful-hub.svg?branch=master)](https://travis-ci.org/aiyanbo/restful-hub)
 
-restful-hub 旨在帮助你构建一个更好的RESTful 服务，它架构在 JAX-RS API 只上。
+restful-hub 旨在帮助你构建一个更好的RESTful 服务，它架构在 JAX-RS API 之上。
 
 ###Using###
 
