@@ -4,19 +4,7 @@ restful-hub
 
 restful-hub 旨在帮助你构建一个更好的RESTful 服务，它架构在 JAX-RS API 之上。
 
-###Using###
-
-```java
-
-Success.Created.build(args);
-Success.Deleted.build(args);
-Success.Updated.build(args);
-
-```
-
 ###状态处理###
-
-1. Created
 
 ```js
 
@@ -25,6 +13,16 @@ Success.Updated.build(args);
     "identity": "id",
     "created_at": "created time"
 }
+
+```
+
+###Using###
+
+```java
+
+Success.Created.build(args);
+Success.Deleted.build(args);
+Success.Updated.build(args);
 
 ```
 
