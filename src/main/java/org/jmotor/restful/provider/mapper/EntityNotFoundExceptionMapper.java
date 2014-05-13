@@ -1,8 +1,8 @@
 package org.jmotor.restful.provider.mapper;
 
-import org.jmotor.restful.exception.EntityNotFoundException;
 import org.jmotor.restful.response.Builder;
 
+import javax.persistence.EntityNotFoundException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;

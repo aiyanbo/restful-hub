@@ -20,6 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>4.11</junit.version>
         <javax.ws.rs-api.version>2.0</javax.ws.rs-api.version>
+        <persistence-api.version>1.0.2</persistence-api.version>
         <validation-api.version>1.1.0.Final</validation-api.version>
     </properties>
 
@@ -30,7 +31,12 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>${persistence-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>javax.ws.rs</groupId>
             <artifactId>javax.ws.rs-api</artifactId>
