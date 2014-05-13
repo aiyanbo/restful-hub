@@ -1,7 +1,7 @@
 package org.jmotor.restful.provider.mapper;
 
 import org.jmotor.restful.exception.NotImplementedException;
-import org.jmotor.restful.response.Builder;
+import org.jmotor.restful.response.ErrorBuilder;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
@@ -17,7 +17,7 @@ public class NotImplementedExceptionMapper implements ExceptionMapper<NotImpleme
     @Override
     public Response toResponse(NotImplementedException exception) {
         String message = exception.getLocalizedMessage();
-        return Builder.newBuilder().message(message)
+        return ErrorBuilder.newBuilder().message(message)
                 .error("server_not_implemented", message).build(Response.Status.NOT_IMPLEMENTED);
     }
 }

@@ -1,6 +1,6 @@
 package org.jmotor.restful.provider.mapper;
 
-import org.jmotor.restful.response.Builder;
+import org.jmotor.restful.response.ErrorBuilder;
 
 import javax.persistence.EntityNotFoundException;
 import javax.ws.rs.core.Response;
@@ -18,7 +18,7 @@ import javax.ws.rs.ext.Provider;
 public class EntityNotFoundExceptionMapper implements ExceptionMapper<EntityNotFoundException> {
     @Override
     public Response toResponse(EntityNotFoundException e) {
-        return Builder.newBuilder().message("Entity Not Found").error("missing_entity", e.getLocalizedMessage())
+        return ErrorBuilder.newBuilder().message("Entity Not Found").error("missing_entity", e.getLocalizedMessage())
                 .build(Response.Status.NOT_FOUND);
     }
 }

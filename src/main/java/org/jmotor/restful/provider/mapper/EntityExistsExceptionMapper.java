@@ -1,6 +1,6 @@
 package org.jmotor.restful.provider.mapper;
 
-import org.jmotor.restful.response.Builder;
+import org.jmotor.restful.response.ErrorBuilder;
 
 import javax.persistence.EntityExistsException;
 import javax.ws.rs.core.Response;
@@ -16,7 +16,7 @@ import javax.ws.rs.ext.ExceptionMapper;
 public class EntityExistsExceptionMapper implements ExceptionMapper<EntityExistsException> {
     @Override
     public Response toResponse(EntityExistsException exception) {
-        return Builder.newBuilder().message("Entity Already Exists")
+        return ErrorBuilder.newBuilder().message("Entity Already Exists")
                 .error("entity_already_exists", exception.getLocalizedMessage())
                 .build(Response.Status.CONFLICT);
     }

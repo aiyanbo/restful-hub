@@ -1,6 +1,6 @@
 package org.jmotor.restful.provider.mapper;
 
-import org.jmotor.restful.response.Builder;
+import org.jmotor.restful.response.ErrorBuilder;
 
 import javax.ws.rs.NotAllowedException;
 import javax.ws.rs.core.Response;
@@ -19,7 +19,7 @@ public class NotAllowedExceptionMapper implements ExceptionMapper<NotAllowedExce
     @Override
     public Response toResponse(NotAllowedException e) {
         String message = e.getLocalizedMessage();
-        return Builder.newBuilder()
+        return ErrorBuilder.newBuilder()
                 .message(message)
                 .error("method_not_allowed", message)
                 .build(Response.Status.METHOD_NOT_ALLOWED);

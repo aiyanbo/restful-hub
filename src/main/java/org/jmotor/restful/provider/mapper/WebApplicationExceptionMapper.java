@@ -1,6 +1,6 @@
 package org.jmotor.restful.provider.mapper;
 
-import org.jmotor.restful.response.Builder;
+import org.jmotor.restful.response.ErrorBuilder;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
@@ -20,7 +20,7 @@ public class WebApplicationExceptionMapper implements ExceptionMapper<WebApplica
         String message = exception.getLocalizedMessage();
         Response response = exception.getResponse();
         String code = response.getStatusInfo().getReasonPhrase().replace(" ", "_").toLowerCase();
-        org.jmotor.restful.response.Error error = Builder.newBuilder().message(message)
+        org.jmotor.restful.response.Error error = ErrorBuilder.newBuilder().message(message)
                 .error(code, message).build();
         return Response.fromResponse(response).entity(error).type(MediaType.APPLICATION_JSON_TYPE).build();
     }

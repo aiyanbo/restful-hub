@@ -1,6 +1,6 @@
 package org.jmotor.restful.provider.mapper;
 
-import org.jmotor.restful.response.Builder;
+import org.jmotor.restful.response.ErrorBuilder;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -21,7 +21,7 @@ import java.util.Set;
 public class ConstraintViolationExceptionMapper implements ExceptionMapper<ConstraintViolationException> {
     @Override
     public Response toResponse(ConstraintViolationException e) {
-        Builder builder = Builder.newBuilder();
+        ErrorBuilder builder = ErrorBuilder.newBuilder();
         builder.message("Illegal Parameter");
         Set<ConstraintViolation<?>> constraintViolations = e.getConstraintViolations();
         for (ConstraintViolation constraintViolation : constraintViolations) {

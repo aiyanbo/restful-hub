@@ -1,6 +1,6 @@
 package org.jmotor.restful.provider.mapper;
 
-import org.jmotor.restful.response.Builder;
+import org.jmotor.restful.response.ErrorBuilder;
 
 import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.core.MediaType;
@@ -19,7 +19,7 @@ public class ForbiddenExceptionMapper implements ExceptionMapper<ForbiddenExcept
     public Response toResponse(ForbiddenException exception) {
         Response originalResponse = exception.getResponse();
         String message = exception.getLocalizedMessage();
-        org.jmotor.restful.response.Error error = Builder.newBuilder().message(message)
+        org.jmotor.restful.response.Error error = ErrorBuilder.newBuilder().message(message)
                 .error(originalResponse.getStatusInfo().getReasonPhrase().toLowerCase(), message).build();
         return Response.fromResponse(originalResponse).entity(error).type(MediaType.APPLICATION_JSON_TYPE).build();
     }

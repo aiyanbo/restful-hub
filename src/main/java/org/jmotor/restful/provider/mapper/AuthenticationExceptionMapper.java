@@ -1,7 +1,7 @@
 package org.jmotor.restful.provider.mapper;
 
 import org.jmotor.restful.exception.AuthenticationException;
-import org.jmotor.restful.response.Builder;
+import org.jmotor.restful.response.ErrorBuilder;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
@@ -17,7 +17,7 @@ public class AuthenticationExceptionMapper implements ExceptionMapper<Authentica
     @Override
     public Response toResponse(AuthenticationException exception) {
         AuthenticationException.Code code = exception.code();
-        return Builder.newBuilder().message(code.message())
+        return ErrorBuilder.newBuilder().message(code.message())
                 .error(code.code(), code.message()).build(code.status());
     }
 }

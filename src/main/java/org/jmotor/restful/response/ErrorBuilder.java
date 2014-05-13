@@ -12,35 +12,35 @@ import java.util.List;
  *
  * @author Andy Ai
  */
-public class Builder {
+public class ErrorBuilder {
     private String message;
     private List<Detail> errors = new ArrayList<>();
 
-    private Builder() {
+    private ErrorBuilder() {
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public static ErrorBuilder newBuilder() {
+        return new ErrorBuilder();
     }
 
-    public Builder error(String code, String message) {
+    public ErrorBuilder error(String code, String message) {
         Detail error = new Detail();
         error.setCode(code);
         error.setMessage(message);
         return error(error);
     }
 
-    public Builder error(Detail error) {
+    public ErrorBuilder error(Detail error) {
         errors.add(error);
         return this;
     }
 
-    public Builder message(String message) {
+    public ErrorBuilder message(String message) {
         this.message = message;
         return this;
     }
 
-    public Builder errors(List<Detail> errors) {
+    public ErrorBuilder errors(List<Detail> errors) {
         this.errors = errors;
         return this;
     }

@@ -1,6 +1,6 @@
 package org.jmotor.restful.provider.mapper;
 
-import org.jmotor.restful.response.Builder;
+import org.jmotor.restful.response.ErrorBuilder;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
@@ -18,7 +18,7 @@ public class IllegalArgumentExceptionMapper implements ExceptionMapper<IllegalAr
     @Override
     public Response toResponse(IllegalArgumentException exception) {
         String message = exception.getLocalizedMessage();
-        return Builder.newBuilder()
+        return ErrorBuilder.newBuilder()
                 .message(message)
                 .error("illegal_parameter", message)
                 .build(Response.Status.BAD_REQUEST);
