@@ -16,6 +16,13 @@ public class Created implements Status {
     private String identity;
     private Date createdAt;
 
+    /**
+     * Build response
+     *
+     * @param parameters [0]: base uri
+     *                   [1]: identity
+     * @return response entity
+     */
     @Override
     public Response build(Object... parameters) {
         Created created = new Created();
