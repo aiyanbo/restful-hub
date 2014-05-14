@@ -22,6 +22,7 @@ public class AuthenticationException extends RuntimeException {
     }
 
     public static enum Code {
+        INVALID_TOKEN(Response.Status.BAD_REQUEST.getStatusCode(), "invalid_token", "Invalid token"),
         TOKEN_EXPIRED(Response.Status.FORBIDDEN.getStatusCode(), "token_expired", "Token expired"),
         UNKNOWN_SCOPE(Response.Status.UNAUTHORIZED.getStatusCode(), "unknown_scope", "Unknown scope"),
         UNKNOWN_CLIENT(Response.Status.UNAUTHORIZED.getStatusCode(), "unknown_client", "Unknown client"),
