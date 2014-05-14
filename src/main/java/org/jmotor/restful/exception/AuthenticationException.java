@@ -34,7 +34,7 @@ public class AuthenticationException extends RuntimeException {
                 "server_suspended", "The server has been suspended"),
         ACCESS_DENIED(Response.Status.FORBIDDEN.getStatusCode(), "access_denied", "The user has denied your application access"),
         INVALID_TOKEN(Response.Status.BAD_REQUEST.getStatusCode(), "invalid_token", "Invalid token"),
-        TOKEN_EXPIRED(Response.Status.FORBIDDEN.getStatusCode(), "token_expired", "Token expired"),
+        TOKEN_EXPIRED(Response.Status.BAD_REQUEST.getStatusCode(), "token_expired", "Token expired"),
         UNKNOWN_SCOPE(Response.Status.UNAUTHORIZED.getStatusCode(), "unknown_scope", "Unknown scope"),
         UNKNOWN_CLIENT(Response.Status.UNAUTHORIZED.getStatusCode(), "unknown_client", "Unknown client"),
         SCOPE_NOT_ALLOWED(Response.Status.FORBIDDEN.getStatusCode(), "scope_not_allowed", "Scope not allowed"),
