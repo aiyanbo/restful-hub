@@ -2,7 +2,7 @@ restful-hub
 ===========
 [![Build Status](https://travis-ci.org/aiyanbo/restful-hub.svg?branch=master)](https://travis-ci.org/aiyanbo/restful-hub)
 
-restful-hub helps you build a RESTful server of beauty
+Helps you build a RESTful server of beauty
 
 ###状态处理###
 
