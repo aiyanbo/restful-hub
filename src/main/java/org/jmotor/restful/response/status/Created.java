@@ -21,6 +21,7 @@ public class Created implements Status {
      *
      * @param parameters [0]: base uri
      *                   [1]: identity
+     *                   [2]: created at
      * @return response entity
      */
     @Override
@@ -28,9 +29,15 @@ public class Created implements Status {
         Created created = new Created();
         String identity = String.valueOf(parameters[1]);
         String url = String.valueOf(parameters[0]) + "/" + identity;
+        Date createdAt;
+        if (parameters.length == 3) {
+            createdAt = (Date) parameters[2];
+        } else {
+            createdAt = new Date();
+        }
         created.setUri(url);
         created.setIdentity(identity);
-        created.setCreatedAt(new Date());
+        created.setCreatedAt(createdAt);
         return Response.status(Response.Status.CREATED).entity(created).type(MediaType.APPLICATION_JSON_TYPE).build();
     }
 
