@@ -8,6 +8,8 @@ package org.jmotor.restful.header;
  * @author Andy Ai
  */
 public interface XHeaders {
+    String SERVER = "Server";
+    String POWERED_BY = "X-Powered-By";
     String RATE_LIMIT = "X-RateLimit-Limit";
     String RATE_RESET = "X-RateLimit-Reset";
     String RATE_REMAINING = "X-RateLimit-Remaining";
