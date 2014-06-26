@@ -7,7 +7,7 @@ package org.jmotor.restful.response;
  *
  * @author Andy Ai
  */
-public class Detail {
+public class Stack {
     private String code;
     private String message;
 

@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Error {
     private String message;
-    private List<Detail> errors;
+    private List<Stack> errors;
 
     public String getMessage() {
         return message;
@@ -21,11 +21,11 @@ public class Error {
         this.message = message;
     }
 
-    public List<Detail> getErrors() {
+    public List<Stack> getErrors() {
         return errors;
     }
 
-    public void setErrors(List<Detail> errors) {
+    public void setErrors(List<Stack> errors) {
         this.errors = errors;
     }
 }

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class ErrorBuilder {
     private String message;
-    private List<Detail> errors = new ArrayList<>();
+    private List<Stack> errors = new ArrayList<>();
 
     private ErrorBuilder() {
     }
@@ -24,13 +24,13 @@ public class ErrorBuilder {
     }
 
     public ErrorBuilder error(String code, String message) {
-        Detail error = new Detail();
+        Stack error = new Stack();
         error.setCode(code);
         error.setMessage(message);
         return error(error);
     }
 
-    public ErrorBuilder error(Detail error) {
+    public ErrorBuilder error(Stack error) {
         errors.add(error);
         return this;
     }
@@ -40,7 +40,7 @@ public class ErrorBuilder {
         return this;
     }
 
-    public ErrorBuilder errors(List<Detail> errors) {
+    public ErrorBuilder errors(List<Stack> errors) {
         this.errors = errors;
         return this;
     }
