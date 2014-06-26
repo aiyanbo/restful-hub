@@ -1,6 +1,8 @@
 package org.jmotor.restful.provider.mapper;
 
 import org.jmotor.restful.response.ErrorBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -19,8 +21,11 @@ import java.util.Set;
  */
 @Provider
 public class ConstraintViolationExceptionMapper implements ExceptionMapper<ConstraintViolationException> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConstraintViolationExceptionMapper.class);
+
     @Override
     public Response toResponse(ConstraintViolationException e) {
+        LOGGER.error(e.getLocalizedMessage(), e);
         ErrorBuilder builder = ErrorBuilder.newBuilder();
         builder.message("Illegal Parameter");
         Set<ConstraintViolation<?>> constraintViolations = e.getConstraintViolations();

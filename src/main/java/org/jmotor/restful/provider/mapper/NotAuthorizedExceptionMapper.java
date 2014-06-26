@@ -1,6 +1,8 @@
 package org.jmotor.restful.provider.mapper;
 
 import org.jmotor.restful.response.ErrorBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.core.MediaType;
@@ -15,8 +17,11 @@ import javax.ws.rs.ext.ExceptionMapper;
  * @author Andy Ai
  */
 public class NotAuthorizedExceptionMapper implements ExceptionMapper<NotAuthorizedException> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(NotAuthorizedExceptionMapper.class);
+
     @Override
     public Response toResponse(NotAuthorizedException exception) {
+        LOGGER.error(exception.getLocalizedMessage(), exception);
         Response originalResponse = exception.getResponse();
         String message = exception.getLocalizedMessage();
         org.jmotor.restful.response.Error error = ErrorBuilder.newBuilder().message(message)

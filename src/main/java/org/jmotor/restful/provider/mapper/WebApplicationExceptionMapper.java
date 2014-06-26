@@ -1,6 +1,8 @@
 package org.jmotor.restful.provider.mapper;
 
 import org.jmotor.restful.response.ErrorBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
@@ -15,8 +17,11 @@ import javax.ws.rs.ext.ExceptionMapper;
  * @author Andy Ai
  */
 public class WebApplicationExceptionMapper implements ExceptionMapper<WebApplicationException> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(WebApplicationExceptionMapper.class);
+
     @Override
     public Response toResponse(WebApplicationException exception) {
+        LOGGER.error(exception.getLocalizedMessage(), exception);
         String message = exception.getLocalizedMessage();
         Response response = exception.getResponse();
         String code = response.getStatusInfo().getReasonPhrase().replace(" ", "_").toLowerCase();
