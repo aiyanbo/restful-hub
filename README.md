@@ -7,14 +7,19 @@ Helps you build a RESTful server of beauty
 ###状态处理###
 
 ```js
-
+Headers:
+    Location: http://~/$version/domain/:id
+Body:
 {
-    "uri": "Domain uri",
+    "uri": "http://~/$version/domain/:id",
     "identity": "id",
     "created_at": "created time"
 }
 
 ```
+
+###HATEOAS###
+TBD
 
 ###Using###
 
