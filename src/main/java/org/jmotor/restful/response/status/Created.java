@@ -1,5 +1,6 @@
 package org.jmotor.restful.response.status;
 
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Date;
@@ -38,7 +39,8 @@ public class Created implements Status {
         created.setUri(url);
         created.setIdentity(identity);
         created.setCreatedAt(createdAt);
-        return Response.status(Response.Status.CREATED).entity(created).type(MediaType.APPLICATION_JSON_TYPE).build();
+        return Response.status(Response.Status.CREATED).header(HttpHeaders.LOCATION, url)
+                .entity(created).type(MediaType.APPLICATION_JSON_TYPE).build();
     }
 
     public String getUri() {
