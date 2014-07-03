@@ -19,6 +19,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>4.11</junit.version>
+        <jersey.version>2.10.1</jersey.version>
         <slf4j-api.version>1.7.7</slf4j-api.version>
         <javax.ws.rs-api.version>2.0</javax.ws.rs-api.version>
         <persistence-api.version>1.0.2</persistence-api.version>
@@ -30,6 +31,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>${jersey.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>

@@ -30,6 +30,14 @@ public class Created implements StatusBuilder {
         return builder(parameters).build();
     }
 
+    /**
+     * Build response
+     *
+     * @param parameters [0]: base uri
+     *                   [1]: identity
+     *                   [2]: created at
+     * @return response entity
+     */
     @Override
     public Response.ResponseBuilder builder(Object... parameters) {
         Created created = new Created();
