@@ -9,9 +9,14 @@ import javax.ws.rs.core.Response;
  *
  * @author Andy Ai
  */
-public class Deleted implements Status {
+public class Deleted implements StatusBuilder {
     @Override
     public Response build(Object... parameters) {
-        return Response.status(Response.Status.NO_CONTENT).build();
+        return builder(parameters).build();
+    }
+
+    @Override
+    public Response.ResponseBuilder builder(Object... parameters) {
+        return Response.status(Response.Status.NO_CONTENT);
     }
 }

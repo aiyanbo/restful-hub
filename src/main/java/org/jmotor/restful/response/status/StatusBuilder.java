@@ -9,6 +9,8 @@ import javax.ws.rs.core.Response;
  *
  * @author Andy Ai
  */
-public interface Status {
+public interface StatusBuilder {
     Response build(Object... parameters);
+
+    Response.ResponseBuilder builder(Object... parameters);
 }

@@ -19,7 +19,10 @@ Body:
 ```
 
 ###HATEOAS###
-TBD
+
+```java
+Success.Created.builder(args).link("http://~/$version/domain/:id", LinkRelation.SELF);
+```
 
 ###Using###
 

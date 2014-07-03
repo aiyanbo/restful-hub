@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author Andy Ai
  */
-public class Created implements Status {
+public class Created implements StatusBuilder {
     private String uri;
     private String identity;
     private Date createdAt;
@@ -27,6 +27,11 @@ public class Created implements Status {
      */
     @Override
     public Response build(Object... parameters) {
+        return builder(parameters).build();
+    }
+
+    @Override
+    public Response.ResponseBuilder builder(Object... parameters) {
         Created created = new Created();
         String identity = String.valueOf(parameters[1]);
         String url = String.valueOf(parameters[0]) + "/" + identity;
@@ -40,7 +45,7 @@ public class Created implements Status {
         created.setIdentity(identity);
         created.setCreatedAt(createdAt);
         return Response.status(Response.Status.CREATED).header(HttpHeaders.LOCATION, url)
-                .entity(created).type(MediaType.APPLICATION_JSON_TYPE).build();
+                .entity(created).type(MediaType.APPLICATION_JSON_TYPE);
     }
 
     public String getUri() {

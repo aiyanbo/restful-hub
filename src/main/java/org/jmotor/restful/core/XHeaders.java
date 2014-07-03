@@ -1,4 +1,4 @@
-package org.jmotor.restful.header;
+package org.jmotor.restful.core;
 
 /**
  * Component:
